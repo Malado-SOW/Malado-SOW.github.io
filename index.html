@@ -22,7 +22,6 @@
     <nav>
         <div class="container nav-content">
             <a href="#home" class="logo">
-            <!-- Remplace "malado-photo.jpg" par le vrai nom de ton fichier -->
             <img src="malado.jpg" alt="Photo Malado" class="nav-profile-img">
             Malado<span> SOW</span>
             </a>
@@ -45,10 +44,11 @@
     <section id="home">
         <div class="container hero-content">
             <h1>Bonjour, je suis <span class="highlight">Malado SOW</span></h1>
-            <h2 class="tech-font"><span class="hero-typing">Étudiant en Cybersécurité</span></h2>
+            <h2 class="tech-font"><span class="hero-typing">Étudiant Ingénieur en Cybersécurité
+</span></h2>
             <p style="max-width: 600px; margin: 0 auto 20px;">
-                Spécialiste en tests d'intrusion, durcissement de systèmes et analyse de vulnérabilités.
-                Je transforme les failles en solutions de défense.
+                Spécialisé dans la sécurité des systèmes et des réseaux, la détection d’attaques et l’analyse de vulnérabilités.
+Je conçois et sécurise des infrastructures complètes en m’appuyant sur une compréhension offensive des menaces.
             </p>
             <div class="hero-btns">
                 <a href="#projects" class="btn">Voir mes projets</a>
@@ -63,14 +63,29 @@
             <h2>Qui suis-je ?</h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>
-                        Passionné par l'informatique depuis mon plus jeune âge, j'ai orienté mes études vers la <strong>sécurité des systèmes d'information</strong>. 
-                        Mon objectif est de comprendre les mécanismes d'attaque pour mieux construire des défenses robustes.
+                   <p>
+                        Étudiant en <strong>cycle ingénieur en cybersécurité</strong>, je me spécialise
+                        dans la <strong>détection des menaces</strong>, la
+                        <strong>sécurisation des infrastructures</strong> et la
+                        <strong>surveillance des systèmes</strong>.
                     </p>
+
                     <p>
-                        Actuellement étudiant en Master Cybersécurité, je passe mon temps à explorer les dernières failles (CVE), participer aux CTF (Capture The Flag) et automatiser des tâches d'audit via Python.
+                        Je conçois et exploite des environnements virtualisés intégrant
+                        <strong>Active Directory, DNS/DHCP, VPN, serveurs mail et SIEM</strong>,
+                        avec un focus sur la <strong>centralisation des logs</strong>,
+                        l’<strong>analyse d’incidents</strong> et la
+                        <strong>réponse aux alertes de sécurité</strong>.
                     </p>
-                    <p class="tech-font" style="color: var(--accent-green);">> Motivation : Devenir Pentester certifié OSCP.</p>
+
+                    <p>
+                        Mon approche Blue Team repose sur l’analyse des attaques réelles afin de
+                        mettre en place des <strong>mécanismes de détection efficaces</strong>,
+                        des <strong>contre-mesures mesurables</strong> et une
+                        <strong>amélioration continue de la posture de sécurité</strong>.
+                    </p>    
+
+                  <!--  <p class="tech-font" style="color: var(--accent-green);">> Motivation : Devenir Pentester certifié OSCP.</p> -->
                 </div>
                 
                 <div class="timeline">
@@ -116,10 +131,11 @@
                     <img src="ceh_logo.jpg" alt="Logo CEH" class="cert-logo">
                     <!-- 2. Nom du certificat -->
                     <h4>CEH</h4>
-                    <a href="javascript:void(0)" class="cert-link" onclick="openModal(this)">
+                <!--    <a href="javascript:void(0)" class="cert-link" onclick="openModal(this)">
                     <!-- 4. Photo de la certification (Vignette) -->
-                        <img src="cisco.jpg" alt="Certificat Security+" class="cert-capture">
-                    </a>
+                  <!--      <img src="cisco.jpg" alt="Certificat Security+" class="cert-capture">
+                   <!-- </a> -->
+                    <P> En cours</P>
                 </div>
 
                 <div class="cert-badge">
@@ -229,9 +245,9 @@
                             <li><strong>Rapport :</strong> Rédaction d'un rapport final.</li>
                         </ul>
                     </div>
-                    <div class="project-footer">
+                  <!--  <div class="project-footer">
                         <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 15px;">Voir sur GitHub</a>
-                    </div>
+                    </div> -->
                 </article>
 
                 <!-- Projet 2 -->
@@ -248,9 +264,9 @@
                             <li>Obfuscation du code pour bypass AV.</li>
                         </ul>
                     </div>
-                    <div class="project-footer">
+                <!--    <div class="project-footer">
                         <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 15px;">Voir le Code</a>
-                    </div>
+                    </div> !-->
                 </article>
 
                 <!-- Projet 3 -->
@@ -267,9 +283,9 @@
                             <li>VPN d'accès distant.</li>
                         </ul>
                     </div>
-                    <div class="project-footer">
+                   <!-- <div class="project-footer">
                         <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 15px;">Voir l'Architecture</a>
-                    </div>
+                    </div> -->
                 </article>
 
             </div>
@@ -319,22 +335,35 @@
         <div class="container">
             <h2>Centres d'Intérêt</h2>
             <div class="interests-grid">
+                
+                <!-- 1. Veille Cybersécurité -->
                 <div class="interest-item">
-                    <i class="fas fa-gamepad"></i>
-                    <h4>CTF / Hacking</h4>
+                    <i class="fas fa-shield-virus"></i>
+                    <h4>Veille Cyber</h4>
+                    <p class="interest-desc">DFIR Report</p>
                 </div>
+
+                <!-- 2. Sport -->
                 <div class="interest-item">
-                    <i class="fas fa-code"></i>
-                    <h4>Open Source</h4>
+                    <i class="fas fa-futbol"></i>
+                    <h4>Sports Collectifs</h4>
+                    <p class="interest-desc">Football & Randonnée</p>
                 </div>
+
+                <!-- 3. Engagement Associatif -->
                 <div class="interest-item">
-                    <i class="fas fa-microchip"></i>
-                    <h4>Hardware</h4>
+                    <i class="fas fa-hands-helping"></i>
+                    <h4>Engagement Social</h4>
+                    <p class="interest-desc">AFEV & ASER</p>
                 </div>
+
+                <!-- 4. High-Tech (Ajouté pour l'équilibre) -->
                 <div class="interest-item">
-                    <i class="fas fa-running"></i>
-                    <h4>Athlétisme</h4>
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>High-Tech</h4>
+                    <p class="interest-desc">Hardware</p>
                 </div>
+
             </div>
         </div>
     </section>
@@ -352,7 +381,7 @@
             </div>
 
             <p class="tech-font" style="font-size: 0.8rem; color: #555;">
-                © 2024 Malado SOW. Built with HTML/CSS & Deployed via GitHub Pages.
+                © 2025 Malado SOW.
             </p>
         </div>
     </footer>

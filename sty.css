@@ -370,62 +370,112 @@
         .project-footer { padding: 20px; text-align: center; border-top: 1px solid #333; }
 
         /* =========================================
-           CENTRES D'INTÉRÊT & CONTACT
-           ========================================= */
-        .interests-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
+   CENTRES D'INTÉRÊT & CONTACT (VERSION AMÉLIORÉE)
+   ========================================= */
 
-        .interest-item {
-            text-align: center;
-            width: 150px;
-        }
+/* --- GRILLE DES INTÉRÊTS --- */
+.interests-grid {
+    /* Passage de Flex à Grid pour un alignement forcé de 4 colonnes */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
 
-        .interest-item i {
-            font-size: 2.5rem;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-            transition: var(--transition);
-        }
-        .interest-item:hover i { color: var(--accent-green); transform: scale(1.1); }
+.interest-item {
+    text-align: center;
+    
+    /* Nouveau style de carte */
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    
+    /* Suppression de la largeur fixe, la grille gère la taille */
+    padding: 25px 15px;
+    
+    transition: var(--transition);
+    cursor: default;
+}
 
-        footer {
-            background: #000;
-            padding: 50px 0 20px;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-        }
+/* --- ÉTAT HOVER (SURVOL) --- */
+.interest-item:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 255, 65, 0.05); /* Légère teinte verte */
+    border-color: var(--accent-green);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
 
-        .social-links {
-            margin-bottom: 30px;
-        }
+.interest-item i {
+    font-size: 2.5rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    transition: var(--transition);
+}
 
-        .social-btn {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
-            border: 1px solid #333;
-            border-radius: 50%;
-            color: #fff;
-            font-size: 1.2rem;
-            margin: 0 10px;
-            text-decoration: none;
-            transition: var(--transition);
-        }
+/* Animation améliorée de l'icône */
+.interest-item:hover i { 
+    color: var(--accent-green); 
+    transform: scale(1.1) rotate(5deg); /* Ajout d'une légère rotation */
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+}
 
-        .social-btn:hover {
-            background: var(--accent-green);
-            border-color: var(--accent-green);
-            color: #000;
-            box-shadow: 0 0 15px var(--accent-green);
-        }
+/* --- STYLE DE LA DESCRIPTION --- */
+.interest-desc {
+    display: block; /* Force le saut de ligne sous le titre */
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: var(--font-code); /* Police style code */
+    margin-top: 5px;
+}
 
+/* --- FOOTER (Inchangé car fonctionnel) --- */
+footer {
+    background: #000;
+    padding: 50px 0 20px;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.social-links {
+    margin-bottom: 30px;
+}
+
+.social-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #333;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.social-btn:hover {
+    background: var(--accent-green);
+    border-color: var(--accent-green);
+    color: #000;
+    box-shadow: 0 0 15px var(--accent-green);
+}
+
+/* =========================================
+   RESPONSIVE (Adaptation des intérêts)
+   ========================================= */
+@media (max-width: 1024px) {
+    .interests-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2x2 sur tablette */
+    }
+}
+
+@media (max-width: 600px) {
+    .interests-grid {
+        grid-template-columns: 1fr; /* 1 colonne sur mobile */
+    }
+}
         /* =========================================
            RESPONSIVE (MOBILE)
            ========================================= */
