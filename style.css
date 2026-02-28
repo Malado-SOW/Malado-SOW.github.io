@@ -33,16 +33,13 @@ body {
 }
 
 /* =========================================
-   PERSONNALISATION NAVIGATEUR (AJOUTS PRO)
+   PERSONNALISATION NAVIGATEUR
    ========================================= */
-
-/* 1. Couleur de sélection du texte (Surlignage) */
 ::selection {
     background: var(--accent-green);
     color: #000;
 }
 
-/* 2. Barre de défilement (Scrollbar) style Cyber */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -57,7 +54,6 @@ body {
     background: var(--accent-green);
 }
 
-/* 3. Accessibilité : Contour au clavier (Tab) */
 a:focus, button:focus, .btn:focus {
     outline: 2px solid var(--accent-green);
     outline-offset: 3px;
@@ -131,6 +127,8 @@ nav {
     color: #fff;
     text-decoration: none;
     letter-spacing: 1px;
+    display: flex;
+    align-items: center;
 }
 .logo span { color: var(--accent-green); }
 
@@ -154,7 +152,6 @@ nav {
     text-shadow: 0 0 8px rgba(0, 255, 65, 0.4);
 }
 
-/* Menu Mobile Toggle */
 .menu-toggle { display: none; font-size: 1.5rem; color: #fff; cursor: pointer; }
 
 /* =========================================
@@ -194,9 +191,7 @@ nav {
 
 @keyframes blink { 50% { border-color: transparent; } }
 
-.hero-btns {
-    margin-top: 30px;
-}
+.hero-btns { margin-top: 30px; }
 
 .btn {
     display: inline-block;
@@ -275,73 +270,91 @@ nav {
    ========================================= */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    align-items: stretch; 
 }
 
 .skill-category {
-    background: var(--card-bg);
-    padding: 25px;
-    border: 1px solid #222;
-    transition: var(--transition);
+    background: linear-gradient(145deg, #161616, #0f0f0f);
+    background-image: 
+        linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px; 
+    padding: 30px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    position: relative;
+    overflow: hidden; 
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
 }
 
 .skill-category:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.02); 
     border-color: var(--accent-green);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(0, 255, 65, 0.2); 
 }
 
 .skill-category h3 {
-    font-size: 1.2rem;
-    border-bottom: 1px solid #333;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    color: var(--accent-green);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    color: #fff;
+    display: flex;
+    align-items: center;
 }
 
-/* --- CONTENEUR DES TAGS --- */
+.skill-category h3 i {
+    margin-right: 12px;
+    color: var(--accent-green);
+    text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.skill-category:hover h3 i {
+    transform: rotate(10deg) scale(1.1); 
+}
+
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    margin-top: auto; /* Aligne le contenu en haut si la carte est grande */
+    margin-top: auto; 
 }
 
-/* --- STYLE DU TAG (ex: PYTHON) --- */
 .tag {
-    /* Fond et couleur par défaut */
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.03); 
     color: var(--text-muted);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    
-    /* Forme */
+    border: 1px solid rgba(255, 255, 255, 0.1); 
     padding: 8px 14px;
     font-size: 0.85rem;
-    font-family: var(--font-code); /* Police style code */
+    font-family: var(--font-code); 
     border-radius: 4px;
-    
-    /* Interaction */
     cursor: default;
     transition: all 0.2s ease;
     position: relative;
 }
 
-/* --- STYLE DU TAG AU SURVOL (ex: PASSER SUR PYTHON) --- */
 .tag:hover {
-    /* Devient vert vif */
     background: var(--accent-green);
     color: #000;
     border-color: var(--accent-green);
-    
-    /* Effet néon et léger mouvement */
     box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
     transform: translateY(-2px); 
 }
+
 /* =========================================
    CERTIFICATIONS (BADGES)
    ========================================= */
-/* --- CONTENEUR --- */
 .cert-container {
     display: flex;
     justify-content: center;
@@ -349,7 +362,6 @@ nav {
     gap: 30px;
 }
 
-/* --- CARTE PRINCIPALE --- */
 .cert-badge {
     background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
     padding: 25px 30px;
@@ -357,60 +369,45 @@ nav {
     text-align: center;
     border: 1px solid #333;
     min-width: 220px;
-    
-    /* Force l'ordre vertical */
     display: flex;
     flex-direction: column; 
     align-items: center;
     justify-content: center;
     gap: 15px; 
-    
-    /* Animation fluide pour le levitement de la carte */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: default;
 }
 
-/* Effet au survol de la CARTE : Elle lève et s'illumine */
 .cert-badge:hover {
-    transform: translateY(-5px); /* Monte de 5px vers le haut */
-    box-shadow: 0 10px 20px rgba(0, 255, 65, 0.15); /* Ombre verte douce */
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0, 255, 65, 0.15); 
     border-color: var(--accent-green);
 }
 
-/* --- LOGO --- */
 .cert-logo {
     height: 50px;
     width: auto;
-    object-fit: contain; /* Garde les proportions */
-    
-    /* Aucun filtre ici, donc le logo est en couleur d'origine */
-    
+    object-fit: contain; 
     transition: transform 0.3s ease;
 }
 
-/* Effet au survol : Un simple zoom léger */
 .cert-badge:hover .cert-logo {
     transform: scale(1.1);
 }
 
-/* --- PHOTO DE CERTIFICATION (VIGNETTE) --- */
 .cert-capture {
     width: 100%;
-    height: 80px; /* Petite vignette par défaut */
-    object-fit: cover; /* Coupe l'image pour remplir le cadre */
+    height: 80px; 
+    object-fit: cover; 
     border-radius: 4px;
-    
-    /* Plus besoin de margin-top car 'gap: 15px' gère l'espace dans le parent */
-    
-    opacity: 0.6; /* Légèrement transparent */
+    opacity: 0.6; 
     border: 1px solid #333;
     transition: opacity 0.3s ease, height 0.3s ease, border-color 0.3s ease;
 }
 
-/* Effet au survol : La vignette grandit et devient opaque */
 .cert-badge:hover .cert-capture {
     opacity: 1;
-    height: 110px; /* S'agrandit pour montrer plus de détails */
+    height: 110px; 
     border-color: var(--accent-green);
 }
 
@@ -475,28 +472,327 @@ nav {
 .project-footer { padding: 20px; text-align: center; border-top: 1px solid #333; }
 
 /* =========================================
+   DOCUMENTATION STYLE WAZUH (SANS BACKGROUND CONTENU)
+   ========================================= */
+
+/* =========================================
+   DOCUMENTATION (VERTICAL + NAV HORIZONTALE)
+   ========================================= */
+
+/* =========================================
+   DOCUMENTATION (NAV + FERMER ALIGNÉ + CODE CENTRÉ)
+   ========================================= */
+/* =========================================
+   DOCUMENTATION (NAV TOP + LARGEUR AUGMENTÉE)
+   ========================================= */
+
+.doc-overlay {
+    display: none; 
+    position: fixed;
+    z-index: 5000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; 
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.doc-overlay.show {
+    display: flex;
+    opacity: 1;
+}
+
+.doc-scroll-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    /* Padding-top retiré (était 40px) pour coller la Nav au top */
+    padding: 0 20px 40px 20px; 
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: #333 #000;
+}
+
+.doc-scroll-wrapper::-webkit-scrollbar { width: 6px; }
+.doc-scroll-wrapper::-webkit-scrollbar-track { background: #000; }
+.doc-scroll-wrapper::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+
+.doc-container-center {
+    /* LARGEUR AUGMENTÉE : de 800px à 950px pour plus d'espace pour le code */
+    max-width: 950px; 
+    margin: 0 auto;
+    /* Padding-top ajouté ici pour espacer le contenu de la Nav */
+    padding-top: 30px;
+    padding-bottom: 80px;
+}
+
+/* --- BARRE NAVIGATION (COLLÉE AU HAUT) --- */
+.doc-nav-top {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    position: sticky; 
+    top: 0; /* Collée tout en haut */
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.95); 
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #333;
+    /* Margin-top retiré pour coller au top */
+    margin-bottom: 0; 
+    padding: 10px 20px;
+}
+
+.nav-items {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+}
+
+.nav-items::-webkit-scrollbar { height: 0; }
+
+.nav-link {
+    text-decoration: none;
+    color: #888;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    white-space: nowrap; 
+    border: 1px solid transparent;
+}
+
+.nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+    color: #000;
+    background: var(--accent-green);
+    border-color: var(--accent-green);
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+}
+
+.doc-close-btn {
+    margin-left: auto; 
+    background: transparent;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: var(--font-code);
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.doc-close-btn:hover {
+    background: var(--accent-green);
+    color: #000;
+    border-color: var(--accent-green);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+}
+
+/* --- HEADER --- */
+.doc-header-center {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.doc-badge {
+    display: inline-block;
+    background: rgba(0, 255, 65, 0.1);
+    color: var(--accent-green);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(0, 255, 65, 0.3);
+}
+
+.doc-header-center h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: linear-gradient(90deg, #fff, #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.doc-header-center p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- CARTES (STEPS) --- */
+.doc-step {
+    display: flex;
+    background: rgba(20, 20, 20, 0.6); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.doc-step:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-green);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.step-number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.05); 
+    margin-right: 30px;
+    line-height: 1;
+    font-family: var(--font-code);
+    min-width: 60px;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.doc-step:hover .step-number {
+    color: rgba(0, 255, 65, 0.2); 
+}
+
+.step-content { flex: 1; }
+.doc-step h3 { color: #fff; font-size: 1.4rem; margin-bottom: 10px; }
+.doc-step p { color: #ccc; margin-bottom: 20px; line-height: 1.6; }
+
+/* --- BLOCS DE CODE (LARGEUR ADAPTÉE) --- */
+.code-block {
+    background: #080808;
+    border: 1px solid #222;
+    border-radius: 8px;
+    margin: 20px auto; 
+    width: 100%; /* Prend toute la largeur disponible (950px max) */
+    max-width: 100%; 
+    overflow: hidden;
+    position: relative;
+    /* Empêche le débordement horizontal */
+    box-sizing: border-box; 
+}
+
+.code-label {
+    background: #111;
+    color: #ccc;
+    padding: 8px 15px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-family: var(--font-code);
+    border-bottom: 1px solid #222;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.code-block pre {
+    padding: 15px;
+    margin: 0;
+    overflow-x: auto; /* Scroll horizontal si le code est trop long */
+    color: #d4d4d4;
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+}
+
+.copy-btn {
+    background: transparent;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    padding: 4px;
+    font-size: 0.9rem;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.code-label:hover .copy-btn { 
+    color: var(--accent-green); 
+}
+
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+    .doc-step { flex-direction: column; padding: 20px; }
+    .step-number { margin-right: 0; margin-bottom: 15px; font-size: 2.5rem; }
+    .doc-header-center h1 { font-size: 1.8rem; }
+    .doc-container-center { max-width: 100%; padding: 20px; }
+    
+    .doc-close-btn { display: none; }
+    .doc-nav-top { justify-content: center; }
+}
+
+/* =========================================
    CENTRES D'INTÉRÊT & CONTACT
    ========================================= */
 .interests-grid {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
     margin-top: 30px;
 }
 
 .interest-item {
     text-align: center;
-    width: 150px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 25px 15px;
+    transition: var(--transition);
+    cursor: default;
+}
+
+.interest-item:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 255, 65, 0.05);
+    border-color: var(--accent-green);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .interest-item i {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: var(--text-muted);
-    margin-bottom: 10px;
-    transition: var(--transition);
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
-.interest-item:hover i { color: var(--accent-green); transform: scale(1.1); }
+
+.interest-item:hover i { 
+    color: var(--accent-green); 
+    transform: scale(1.1) rotate(5deg); 
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5); 
+}
+
+.interest-item h4 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.interest-desc {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: var(--font-code);
+    margin-top: 5px;
+}
 
 footer {
     background: #000;
@@ -531,20 +827,23 @@ footer {
     box-shadow: 0 0 15px var(--accent-green);
 }
 
-/* --- IMAGE DE PROFIL DANS LA NAVIGATION --- */
 .nav-profile-img {
-    width: 70px;          /* Largeur de la photo */
-    height: 60px;         /* Hauteur de la photo (identique à la largeur pour un carré) */
-    border-radius: 50%;   /* Transforme le carré en cercle parfait */
-    object-fit: cover;   /* Coupe l'image si elle n'est pas carrée pour ne pas la déformer */
-    margin-right: 10px;  /* Espace entre la photo et le texte */
-    vertical-align: middle; /* Aligne la photo au milieu du texte (ni en haut, ni en bas) */
-    border: 2px solid var(--accent-green); /* Optionnel : Une bordure verte autour de la photo */
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin-right: 10px; 
+    border: 2px solid var(--accent-green);
 }
 
 /* =========================================
    RESPONSIVE (MOBILE)
    ========================================= */
+@media (max-width: 1024px) {
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .interests-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 768px) {
     h1 { font-size: 2.5rem; }
     h2 { font-size: 1.8rem; }
@@ -553,7 +852,7 @@ footer {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 70px;
         left: 0;
         width: 100%;
         background: var(--card-bg);
@@ -566,60 +865,63 @@ footer {
     .menu-toggle { display: block; }
             
     .about-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .interests-grid { grid-template-columns: 1fr; }
+    
+    .doc-container { flex-direction: column; height: 100vh; width: 100%; border-radius: 0; border: none; }
+    .doc-sidebar { width: 100%; height: auto; max-height: 250px; border-right: none; border-bottom: 1px solid #333; }
+    .doc-scroll-area { padding: 30px 20px; }
+    .doc-topbar { padding: 0 20px; }
+    .copy-btn { opacity: 1; visibility: visible; }
 }
 
-/* --- MODAL (POP-UP POUR LES PHOTOS) --- */
+/* =========================================
+   MODAL PHOTOS
+   ========================================= */
 .modal {
-    display: none; /* Caché par défaut */
+    display: none;
     position: fixed;
-    z-index: 2000; /* Au-dessus de tout (nav, footer, etc.) */
+    z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.95); /* Fond noir quasi opaque */
+    background-color: rgba(0, 0, 0, 0.95);
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    cursor: pointer; /* Indique qu'on peut cliquer pour fermer */
+    cursor: pointer;
 }
 
-/* Classe activée par le JS pour montrer la fenêtre */
 .modal.show {
     display: flex;
 }
 
-/* L'image en grand dans le modal */
 .modal-img {
-    max-width: 90%;
-    max-height: 85vh; /* Ne déborde pas de l'écran */
+    width: auto;
+    height: auto;
+    max-width: 95%;
+    max-height: 95vh;
+    object-fit: contain;
     border: 2px solid var(--accent-green);
     box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
     animation: zoomIn 0.2s ease;
 }
 
-/* Animation d'ouverture */
 @keyframes zoomIn {
     from { transform: scale(0.8); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
 
-/* Bouton de fermeture (en haut à droite) */
-/* L'image en grand dans le modal */
-.modal-img {
-    width: auto;        /* Laisse l'image prendre sa taille réelle */
-    height: auto;       /* Laisse l'image prendre sa taille réelle */
-    
-    max-width: 95%;     /* Augmenté : Prend quasiment toute la largeur de l'écran */
-    max-height: 95vh;   /* Augmenté : Prend quasiment toute la hauteur de l'écran */
-    
-    object-fit: contain; /* Assure que l'image ne soit pas déformée */
-    
-    border: 2px solid var(--accent-green);
-    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
-    animation: zoomIn 0.2s ease;
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    z-index: 2001;
 }
-.close-modal:hover {
-    color: var(--accent-green);
-}
+.close-modal:hover { color: var(--accent-green); }

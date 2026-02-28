@@ -23,7 +23,7 @@
         <div class="container nav-content">
             <a href="#home" class="logo">
             <img src="malado.jpg" alt="Photo Malado" class="nav-profile-img">
-            Malado<span> SOW</span>
+            Malado <span> SOW</span>
             </a>
             <div class="menu-toggle" id="mobile-menu">
                 <i class="fas fa-bars"></i>
@@ -52,7 +52,7 @@ Je conçois et sécurise des infrastructures complètes en m’appuyant sur une 
             </p>
             <div class="hero-btns">
                 <a href="#projects" class="btn">Voir mes projets</a>
-                <a href="CV MALADO SFE.pdf" class="btn btn-outline"><i class="fas fa-download"></i> CV PDF</a>
+                <!--<a href="CV MALADO SFE.pdf" class="btn btn-outline"><i class="fas fa-download"></i> CV PDF</a>-->
             </div>
         </div>
     </section>
@@ -122,7 +122,7 @@ Je conçois et sécurise des infrastructures complètes en m’appuyant sur une 
                     <h4>Introduction to cyberseurity</h4>
                     <a href="javascript:void(0)" class="cert-link" onclick="openModal(this)">
                     <!-- 4. Photo de la certification (Vignette) -->
-                        <img src="cisco.jpg" alt="Certificat Security+" class="cert-capture">
+                        <img src="attestation cisco.jpg" alt="Certificat Security+" class="cert-capture">
                     </a>
                 </div>
 
@@ -145,7 +145,7 @@ Je conçois et sécurise des infrastructures complètes en m’appuyant sur une 
                     <h4>SecNumacadémie</h4>
                     <a href="javascript:void(0)" class="cert-link" onclick="openModal(this)">
                     <!-- 4. Photo de la certification (Vignette) -->
-                        <img src="cisco1.jpg" alt="Certificat Security+" class="cert-capture">
+                        <img src="attestation ANSSI.jpg" alt="Certificat Security+" class="cert-capture">
                     </a>
                 </div>
 
@@ -271,8 +271,8 @@ Je conçois et sécurise des infrastructures complètes en m’appuyant sur une 
                         <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 15px;">Voir l'Architecture</a>
                     </div> -->
                 </article>
-                <!-- Projet 3 -->
-                <article class="project-card">
+                <!-- Projet 3 : OPENARENA -->
+                <!-- article class="project-card">
                     <div class="project-header">
                         <h3>Pentest Machine "Legacy"</h3>
                         <div class="project-icons"><i class="fab fa-linux"></i></div>
@@ -288,11 +288,180 @@ Je conçois et sécurise des infrastructures complètes en m’appuyant sur une 
                     </div>
                   <!--  <div class="project-footer">
                         <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 15px;">Voir sur GitHub</a>
-                    </div> -->
+                    </div> 
+                </article -->
+
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>Infra Sécurisée OpenArena</h3>
+                        <div class="project-icons">
+                            <i class="fab fa-linux"></i>
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>Déploiement d'une infrastructure complète pour LAN Party sécurisée : Raspberry Pi clients, Serveur Dédié, DNS (BIND9) et Point d'Accès.</p>
+                        <ul class="methodology-list">
+                            <li>Configuration DNS & DHCP</li>
+                            <li>Isolation Réseau (VLAN/AP)</li>
+                            <li>Automatisation (Flask & Bash)</li>
+                        </ul>
+                    </div>
+                    <!--
+                    <div class="project-footer">
+                        <!-- Ce bouton ouvre la documentation --v>
+                        <button class="btn btn-outline" onclick="openDocumentation()" style="font-size: 0.8rem; padding: 8px 15px; cursor: pointer;">
+                            <i class="fas fa-book-open"></i> Ouvrir
+                        </button>
+                    </div>
+                    -->
                 </article>
             </div>
         </div>
     </section>
+
+    <!-- === DOCUMENTATION TECHNIQUE (LAYOUT STYLE WAZUH) === -->
+    <!-- === CONTENU AVEC NAVIGATION HORIZONTALE === -->
+    <!-- === DOCUMENTATION MODALE (VERTICAL + NAV HORIZONTALE) === -->
+    <!-- === DOCUMENTATION MODALE (CORRIGÉE) === -->
+    <div id="docModal" class="doc-overlay">
+        <div class="doc-scroll-wrapper">
+            
+            <!-- BARRE DE NAVIGATION (AVEC BOUTON FERMER INTÉGRÉ) -->
+            <nav class="doc-nav-top">
+                <!-- Conteneur des liens pour les centrer -->
+                <div class="nav-items">
+                    <a href="#step-clients" class="nav-link active">1. Clients</a>
+                    <a href="#step-dns" class="nav-link">2. DNS</a>
+                    <a href="#step-ap" class="nav-link">3. Point d'Accès</a>
+                    <a href="#step-flask" class="nav-link">4. Flask</a>
+                    <a href="#step-backup" class="nav-link">5. Sauvegardes</a>
+                </div>
+                
+                <!-- Bouton Fermer sur la même ligne, à droite -->
+                <button class="doc-close-btn" onclick="closeDocumentation()">
+                    <i class="fas fa-times"></i> FERMER
+                </button>
+            </nav>
+
+            <div class="doc-container-center">
+                
+                <header class="doc-header-center">
+                    <div class="doc-badge">GUIDE TECHNIQUE</div>
+                    <h1>Déploiement Infrastructure OpenArena</h1>
+                    <p>Installation pas-à-pas des clients, serveurs et réseau.</p>
+                </header>
+
+                <!-- ETAPE 1 -->
+                <article id="step-clients" class="doc-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Configuration Clients Raspberry Pi</h3>
+                        <p>Installation de l'image OS et configuration des clients de jeu.</p>
+                        
+                        <!-- BLOC DE CODE CENTRÉ -->
+                        <div class="code-block">
+                            <!-- LE BOUTON COPIER EST MAINTENANT ICI, DANS LE LABEL -->
+                            <div class="code-label">
+                                <span>Terminal</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
+                            </div>
+                            <pre><code>sudo apt-get update && sudo apt-get upgrade</code></pre>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-label">
+                                <span>Lancement OpenArena</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
+                            </div>
+                            <pre><code>openarena +set cl_renderer opengl1 +set r_mode -1 +set r_customwidth 1280 +set r_customheight 720</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ETAPE 2 -->
+                <article id="step-dns" class="doc-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Serveur DNS (BIND9)</h3>
+                        <p>Mise en place d'un serveur DNS maître pour le domaine local.</p>
+                        <div class="code-block">
+                            <div class="code-label">
+                                <span>named.conf.local</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
+                            </div>
+                            <pre><code>zone "openarena-paris.fr" {
+        type master;
+        file "/etc/bind/db.openarena-paris.fr";
+    };</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ETAPE 3 -->
+                <article id="step-ap" class="doc-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Point d'Accès (hostapd)</h3>
+                        <p>Transformation du Pi en Point d'Accès sécurisé.</p>
+                        <div class="code-block">
+                            <div class="code-label">
+                                <span>hostapd.conf</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
+                            </div>
+                            <pre><code>interface=wlan0
+    driver=nl80211
+    ssid=OpenArena2paris
+    hw_mode=g
+    wpa=2
+    wpa_passphrase=Open@ren@2p@ris</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ETAPE 4 -->
+                <article id="step-flask" class="doc-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Automatisation Web (Flask)</h3>
+                        <p>Interface web pour contrôler le serveur de jeu.</p>
+                        <div class="code-block">
+                            <div class="code-label">
+                                <span>app.py</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
+                            </div>
+                            <pre><code>from flask import Flask, jsonify, subprocess
+    app = Flask(__name__)
+
+    @app.route("/start_server")
+    def start_server():
+        subprocess.run(["/var/www/oa_control/scripts/start_server.sh"], shell=True)
+        return jsonify({"status": "success"})</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ETAPE 5 -->
+                <article id="step-backup" class="doc-step">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3>Stratégie de Sauvegarde</h3>
+                        <p>Automatisation des sauvegardes système et web via CRON.</p>
+                        <div class="code-block">
+                            <div class="code-label">
+                                <span>backup.sh</span>
+                                <button class="copy-btn" onclick    ="copyCode(this)"><i class="fas fa-copy"></i></button>
+                            </div>
+                            <pre><code>#!/bin/bash
+    rsync -av /etc "$BACKUP_DIR/etc/"
+    rsync -av /var/www "$BACKUP_DIR/www/"</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </div>
 
     <!-- EXPÉRIENCES -->
     <section id="experience" class="dark-section">
@@ -407,35 +576,110 @@ de la réactivité technique lors des pannes</li>
     </script>
 
     <!-- STRUCTURE HTML DU MODAL (VIDE AU DÉPART) -->
-<div id="imageModal" class="modal" onclick="closeModal()">
-    <span class="close-modal">&times;</span>
-    <img class="modal-img" id="modalImg">
-</div>
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-img" id="modalImg">
+    </div>
 
-<!-- SCRIPT JAVASCRIPT -->
-<script>
-    // Fonction pour ouvrir le modal
-    function openModal(element) {
-        // 1. Récupère l'image à l'intérieur du lien cliqué
-        const img = element.querySelector('img');
-        const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("modalImg");
+    <!-- SCRIPT JAVASCRIPT -->
+    <script>
+        // Fonction pour ouvrir le modal
+        function openModal(element) {
+            // 1. Récupère l'image à l'intérieur du lien cliqué
+            const img = element.querySelector('img');
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImg");
 
-        // 2. Met le lien de la petite image dans la grande image du modal
-        modalImg.src = img.src;
+            // 2. Met le lien de la petite image dans la grande image du modal
+            modalImg.src = img.src;
 
-        // 3. Affiche le modal
-        modal.classList.add("show");
-        
-        // Empêche le lien de recharger la page (le #)
-        event.preventDefault();
-    }
+            // 3. Affiche le modal
+            modal.classList.add("show");
+            
+            // Empêche le lien de recharger la page (le #)
+            event.preventDefault();
+        }
 
-    // Fonction pour fermer le modal
-    function closeModal() {
-        const modal = document.getElementById("imageModal");
-        modal.classList.remove("show");
-    }
-</script>
+        // Fonction pour fermer le modal
+        function closeModal() {
+            const modal = document.getElementById("imageModal");
+            modal.classList.remove("show");
+        }
+    </script>
+
+    <!-- GESTION DE LA DOCUMENTATION (STYLE WAZUH) -->
+    <script>
+        // --- GESTION DE LA DOCUMENTATION ---
+
+        function openDocumentation() {
+            const modal = document.getElementById('docModal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeDocumentation() {
+            const modal = document.getElementById('docModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto'; 
+        }
+
+        // Fermer si on clique sur le fond noir
+        window.onclick = function(event) {
+            const modal = document.getElementById('docModal');
+            if (event.target == modal) {
+                closeDocumentation();
+            }
+        }
+
+        // --- COPIER LE CODE ---
+        function copyCode(button) {
+            // Le bouton est frère du label, qui est frère du pre
+            const preElement = button.nextElementSibling.nextElementSibling;
+            const codeText = preElement.innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const originalIcon = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                button.style.color = 'var(--accent-green)';
+                setTimeout(() => {
+                    button.innerHTML = originalIcon;
+                    button.style.color = '';
+                }, 2000);
+            }).catch(err => {
+                console.error('Erreur de copie :', err);
+            });
+        }
+
+        // --- NAVIGATION ACTIVE (BARRE HORIZONTALE) ---
+        // On observe le scroll à l'intérieur du modal
+        const observerOptions = {
+            root: document.querySelector('.doc-scroll-wrapper'),
+            threshold: 0.5 
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Désactiver tous les liens
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    // Activer le lien correspondant
+                    const id = entry.target.id;
+                    const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                        // Centrer le lien actif dans la barre (optionnel)
+                        activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.doc-step').forEach((section) => {
+            observer.observe(section);
+        });
+    </script>
+
 </body>
 </html>
